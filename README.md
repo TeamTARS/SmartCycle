@@ -3,9 +3,9 @@ Team Tars project repository including both client-side and server-side code.
 
 ## Basic commands
 ### Development
-`npm run client` to start dev server (listening on port 3000) for client-side code.
+`npm run client` to start dev server (listening on port `3000`) for client-side code.
 
-`npm run server` to start dev server (listening on port 8080) for server-side code.
+`npm run server` to start dev server (listening on port `8080`) for server-side code.
 
 `npm run dev` runs both client and server at the same time.
 
