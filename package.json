@@ -13,6 +13,8 @@
 	"dependencies": {
 		"babel-polyfill": "^6.26.0",
 		"express": "^4.16.3",
+		"hashids": "^2.2.1",
+		"mongoose": "^5.9.2",
 		"react": "^16.5.2",
 		"react-dom": "^16.5.2"
 	},
@@ -27,6 +29,7 @@
 		"clean-webpack-plugin": "^1.0.0",
 		"concurrently": "^4.0.0",
 		"css-loader": "^2.0.0",
+		"dotenv": "^8.2.0",
 		"eslint": "^5.0.0",
 		"eslint-config-airbnb": "^17.0.0",
 		"eslint-plugin-import": "^2.11.0",
