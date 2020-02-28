@@ -54,7 +54,7 @@ Body (JSON):
 ```
 {
 	"name": "paper cup",
-    "hashId": "296516010",
+    	"hashId": "296516010",
 	"category": "compost",
 	"bin": "compost"
 }
@@ -72,7 +72,7 @@ Body (JSON):
 ```
 {
 	"name": "paper cup",
-    "hashId": "296516010",
+    	"hashId": "296516010",
 	"description": "Sample description"
 }
 ```
