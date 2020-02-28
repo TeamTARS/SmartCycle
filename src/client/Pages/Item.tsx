@@ -15,6 +15,7 @@ class ItemPage extends React.Component<ItemPageProps, {}> {
           showMenu={false}
           navBackLink="/results"
         />
+        {/* Maybe use Grid component */}
         <p>Placeholder for item image</p>
         <div className="Item-Description">
           <h3>{this.props.itemName}</h3>

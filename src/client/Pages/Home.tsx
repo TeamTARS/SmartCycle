@@ -15,11 +15,13 @@ class HomePage extends React.Component<HomePageProps, {}> {
         <SearchBar test="Home Page Search Bar" />
         <div className="Partial-Results">
           <h3>Home Page Partial Results</h3>
-          <p>Home Page Partial Results List</p>
+          <p>Home Page Partial Results List (GridList component)</p>
         </div>
         <div className="Camera-View">
           <p>Placeholder for camera view</p>
-          <p>Placeholder for camera button</p>
+          <p>
+            Placeholder for camera button (FAB floating action button component)
+          </p>
         </div>
       </div>
     );

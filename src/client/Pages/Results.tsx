@@ -14,6 +14,7 @@ class ResultsPage extends React.Component<ResultsPageProps, {}> {
       <div className="Results-Page">
         <Header title="Results" showMenu={false} navBackLink="/" />
         <SearchBar test="Search Bar" />
+        {/* <List> component with maybe a <ListItem> component */}
         <ul>
           <li>
             <ItemCard test="Results Page Item Cards 1" />

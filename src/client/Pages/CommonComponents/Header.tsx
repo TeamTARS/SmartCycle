@@ -18,11 +18,13 @@ class Header extends React.Component<HeaderProps, {}> {
   render() {
     return (
       <div className="Header">
+        {/* <AppBar> component */}
         {this.props.showMenu ? (
           <Menu />
         ) : (
           <p>Go Back to {this.props.navBackLink}</p>
         )}
+        <p>Placeholder for title</p>
       </div>
     );
   }
