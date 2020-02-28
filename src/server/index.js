@@ -11,8 +11,8 @@ db.once("open", () =>
 );
 db.on("error", err => console.error("Failed to connect to database:", err));
 
-const trashImagesRouter = require('./routes/TrashImages');
-app.use('/trashImages', trashImagesRouter);
+const trashImagesRouter = require("./routes/TrashImages");
+app.use("/trashImages", trashImagesRouter);
 app.use(express.json());
 const trashInfosRouter = require("./routes/TrashInfos");
 app.use("/trashInfos", trashInfosRouter);
