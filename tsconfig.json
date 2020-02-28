@@ -1,15 +1,15 @@
 {
-    "compilerOptions": {
-      "target": "es5",
-      "lib": ["es2017","dom","webworker"],
-      "allowJs": false,
-      "skipLibCheck": true,
-      "allowSyntheticDefaultImports": true,
-      "strict": true,
-      "module": "esnext",
-      "moduleResolution": "node",
-      "resolveJsonModule": true,
-      "jsx": "react"
-    },
-    "exclude": ["./node_modules"]
+  "compilerOptions": {
+    "target": "es5",
+    "lib": ["es2017", "dom", "webworker"],
+    "allowJs": false,
+    "skipLibCheck": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "jsx": "react"
+  },
+  "exclude": ["./node_modules"]
 }
