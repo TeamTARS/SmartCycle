@@ -26,7 +26,19 @@ module.exports = {
         { test: /\.(png|svg|jpg|gif)$/, use: ['file-loader'] },
         { test: /\.(woff|woff2|eot|ttf)$/, loader: 'url-loader?limit=100000' },
         // All files with a '.ts' or '.tsx' extension will be ts-linted
-        { test: /\.(ts|tsx|properties)$/, enforce: 'pre', loader: 'tslint-loader', options: {emitErrors: true} },
+			{
+				test: /\.(ts|tsx|properties)$/,
+				enforce: "pre",
+				use: [
+					{
+						options: {
+							eslintPath: require.resolve("eslint")
+						},
+						loader: require.resolve("eslint-loader")
+					}
+				],
+				exclude: /node_modules/
+			},
         // TS loader
         {
             test: /\.tsx?$/,
