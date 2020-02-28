@@ -25,8 +25,8 @@
         "WorkerGlobalScope": false // error in orca/fpa-bi-va-utils/PerformanceLogger.js
     },
     "extends": [
-      "react-app"
-    //   "plugin:prettier/recommended"
+      "react-app",
+      "plugin:prettier/recommended"
     ],
     "rules": {
         "no-bitwise": 2,
