@@ -22,7 +22,7 @@ router.get("/:id", getTrashImage, (req, res) => {
   res.json(res.trashImage);
 });
 
-// Create one trash info detail
+// Create one trash image
 router.post("/", upload.single("file"), async (req, res) => {
   try {
     if (req.body.hashId === null || req.body.hashId === undefined) {
@@ -43,7 +43,7 @@ router.post("/", upload.single("file"), async (req, res) => {
   }
 });
 
-// Delete one trash info detail
+// Delete one trash image
 router.delete("/:id", getTrashImage, async (req, res) => {
   try {
     await res.trashImage.remove();
