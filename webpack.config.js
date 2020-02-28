@@ -25,8 +25,6 @@ module.exports = {
         { test: /\.css$/, use: ["style-loader", "css-loader"] },
         { test: /\.(png|svg|jpg|gif)$/, use: ['file-loader'] },
         { test: /\.(woff|woff2|eot|ttf)$/, loader: 'url-loader?limit=100000' },
-        // All files with a '.ts' or '.tsx' extension will be ts-linted
-        { test: /\.(ts|tsx|properties)$/, enforce: 'pre', loader: 'tslint-loader', options: {emitErrors: true} },
         // TS loader
         {
             test: /\.tsx?$/,

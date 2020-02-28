@@ -9,6 +9,8 @@ const db = mongoose.connection;
 db.once('open', () => console.log('Conntected to database:', process.env.DATABASE_URL));
 db.on('error', err => console.error('Failed to connect to database:', err));
 
+const trashImagesRouter = require('./routes/TrashImages');
+app.use('/trashImages', trashImagesRouter);
 app.use(express.json());
 const trashInfosRouter = require('./routes/TrashInfos');
 app.use('/trashInfos', trashInfosRouter);
