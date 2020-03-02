@@ -1,50 +1,118 @@
+import {
+  AppBar,
+  Divider,
+  Drawer,
+  IconButton,
+  List,
+  ListItem,
+  ListItemIcon,
+  ListItemText,
+  Toolbar,
+  Typography
+} from "@material-ui/core";
+import AnnouncementIcon from "@material-ui/icons/Announcement";
+import HelpIcon from "@material-ui/icons/Help";
+import HomeIcon from "@material-ui/icons/Home";
+import MenuIcon from "@material-ui/icons/Menu";
+import PeopleIcon from "@material-ui/icons/People";
+import SettingsIcon from "@material-ui/icons/Settings";
 import React from "react";
 import { Link } from "react-router-dom";
 
 export interface MenuProps {
   title: string;
-  open: boolean;
 }
 
-class Menu extends React.Component<MenuProps, {}> {
+export interface MenuState {
+  open?: boolean;
+}
+
+class Menu extends React.Component<MenuProps, MenuState> {
   public static defaultProps = {
-    title: "Menu",
-    open: false
+    title: "Menu"
   };
+
+  constructor(props: MenuProps) {
+    super(props);
+    this.state = { open: false };
+
+    this.toggleMenu = this.toggleMenu.bind(this);
+  }
+
+  toggleMenu(e: React.KeyboardEvent | React.MouseEvent) {
+    let open = this.state.open;
+    this.setState({ ...this.state, open: !open });
+  }
 
   render() {
     return (
       <div className="Menu">
-        <h1>{this.props.title}</h1>
-        {/* <Drawer open={this.props.open}> */}
-        <nav>
-          {/* <List> component */}
-          <ul>
-            {/* All <li> should be <ListItem> components: https://material-ui.com/guides/composition/#react-router */}
-            <li>
-              {/* TODO: Switch Link to NavLink to allow styling */}
-              {/* Need to contain <Icon> elements */}
-              <Link to="/">Home</Link>
-            </li>
-            {/* <Divider /> */}
-            <li>
-              <Link to="/about">About Us</Link>
-            </li>
-            {/* <Divider /> */}
-            <li>
-              <Link to="/settings">Settings</Link>
-            </li>
-            {/* <Divider /> */}
-            <li>
-              <Link to="/feedback">Send Feedback</Link>
-            </li>
-            {/* <Divider /> */}
-            <li>
-              <Link to="/help">Help</Link>
-            </li>
-            {/* <Divider /> */}
-          </ul>
-        </nav>
+        {/* Header here */}
+        {/* TODO: Add styling */}
+        <AppBar>
+          <Toolbar>
+            <IconButton onClick={this.toggleMenu}>
+              <MenuIcon />
+            </IconButton>
+            <Typography variant="h6">
+              {/* {this.props.showMenu ? "true" : "false"} */}
+              {this.props.title}
+            </Typography>
+          </Toolbar>
+        </AppBar>
+        <Drawer open={this.state.open} onClick={this.toggleMenu}>
+          <div>
+            <AppBar position="relative">
+              <Toolbar>
+                <IconButton onClick={this.toggleMenu}>
+                  <MenuIcon />
+                </IconButton>
+                <Typography variant="h6">Menu</Typography>
+              </Toolbar>
+            </AppBar>
+            <nav>
+              <List>
+                {/* TODO: Switch Link to NavLink to allow styling */}
+                {/* Need to contain <Icon> elements */}
+                <ListItem button component={Link} to="/">
+                  <ListItemIcon>
+                    <HomeIcon />
+                  </ListItemIcon>
+                  <ListItemText>Home</ListItemText>
+                </ListItem>
+                <Divider />
+                <ListItem button component={Link} to="/about">
+                  <ListItemIcon>
+                    <PeopleIcon />
+                  </ListItemIcon>
+                  <ListItemText>About Us</ListItemText>
+                </ListItem>
+                <Divider />
+                <ListItem button component={Link} to="/settings">
+                  <ListItemIcon>
+                    <SettingsIcon />
+                  </ListItemIcon>
+                  <ListItemText>Settings</ListItemText>
+                </ListItem>
+                <Divider />
+                <ListItem button component={Link} to="/feedback">
+                  <ListItemIcon>
+                    <AnnouncementIcon />
+                  </ListItemIcon>
+                  <ListItemText>Send Feedback</ListItemText>
+                </ListItem>
+                <Divider />
+                <ListItem button component={Link} to="/help">
+                  <ListItemIcon>
+                    <HelpIcon />
+                  </ListItemIcon>
+                  <ListItemText>Help</ListItemText>
+                </ListItem>
+                <Divider />
+              </List>
+            </nav>
+          </div>
+        </Drawer>
       </div>
     );
   }

@@ -1,3 +1,5 @@
+import { AppBar, IconButton, Toolbar, Typography } from "@material-ui/core";
+import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import React from "react";
 
 import Menu from "./Menu";
@@ -18,13 +20,22 @@ class Header extends React.Component<HeaderProps, {}> {
   render() {
     return (
       <div className="Header">
-        {/* <AppBar> component */}
+        {/* TODO: Add styling */}
         {this.props.showMenu ? (
-          <Menu />
+          <Menu title={this.props.title} />
         ) : (
-          <p>Go Back to {this.props.navBackLink}</p>
+          <AppBar>
+            <Toolbar>
+              <IconButton>
+                <ArrowBackIcon />
+              </IconButton>
+              <Typography variant="h6">
+                {/* {this.props.showMenu ? "true" : "false"} */}
+                {this.props.title}
+              </Typography>
+            </Toolbar>
+          </AppBar>
         )}
-        <p>Placeholder for title</p>
       </div>
     );
   }
