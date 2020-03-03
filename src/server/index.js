@@ -3,6 +3,7 @@ require("dotenv").config();
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
+const path = require("path");
 
 mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true });
 const db = mongoose.connection;
@@ -23,6 +24,9 @@ app.use(express.static("webpack-build"));
 app.get("/api/getProjectName", (req, res) =>
   res.send({ projectName: "SmartRecycle" })
 );
+app.get("/*", (req, res) => {
+  res.sendFile(path.resolve("webpack-build/index.html"));
+});
 
 app.listen(process.env.PORT || 8080, () =>
   console.log(`Listening on port ${process.env.PORT || 8080}!`)
