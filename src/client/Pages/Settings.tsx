@@ -1,3 +1,4 @@
+import { Divider, Grid, Switch } from "@material-ui/core";
 import React from "react";
 
 import Header from "./CommonComponents/Header";
@@ -13,25 +14,41 @@ class SettingsPage extends React.Component<SettingsPageProps, {}> {
         <Header title="Settings" />
         <div className="Settings-System-Permissions">
           <h3>System Permissions</h3>
-          <ul>
-            <li>
+          <Divider />
+          <Grid container>
+            <Grid item xs={9}>
               <p>Camera</p>
-              <p>Placeholder for toggle</p>
-            </li>
-            <li>
+            </Grid>
+            <Divider orientation="vertical" flexItem />
+            <Grid item xs>
+              <Switch size="small" color="primary" />
+            </Grid>
+          </Grid>
+          <Divider />
+          <Grid container>
+            <Grid item xs={9}>
               <p>Microphone</p>
-              <p>Placeholder for toggle</p>
-            </li>
-          </ul>
+            </Grid>
+            <Divider orientation="vertical" flexItem />
+            <Grid item xs>
+              <Switch size="small" color="primary" />
+            </Grid>
+          </Grid>
+          <Divider />
         </div>
         <div className="Settings-Display">
           <h3>Display</h3>
-          <ul>
-            <li>
+          <Divider />
+          <Grid container>
+            <Grid item xs={9}>
               <p>Dark Mode</p>
-              <p>Placeholder for toggle</p>
-            </li>
-          </ul>
+            </Grid>
+            <Divider orientation="vertical" flexItem />
+            <Grid item xs>
+              <Switch size="small" color="primary" />
+            </Grid>
+          </Grid>
+          <Divider />
         </div>
       </div>
     );

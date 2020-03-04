@@ -1,4 +1,7 @@
+import { AppBar, IconButton, Toolbar, Typography } from "@material-ui/core";
+import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import React from "react";
+import { Link } from "react-router-dom";
 
 import Menu from "./Menu";
 
@@ -18,10 +21,18 @@ class Header extends React.Component<HeaderProps, {}> {
   render() {
     return (
       <div className="Header">
+        {/* TODO: Add styling */}
         {this.props.showMenu ? (
-          <Menu />
+          <Menu title={this.props.title} />
         ) : (
-          <p>Go Back to {this.props.navBackLink}</p>
+          <AppBar position="static">
+            <Toolbar>
+              <IconButton component={Link} to={this.props.navBackLink}>
+                <ArrowBackIcon />
+              </IconButton>
+              <Typography variant="h6">{this.props.title}</Typography>
+            </Toolbar>
+          </AppBar>
         )}
       </div>
     );

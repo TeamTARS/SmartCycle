@@ -11,25 +11,32 @@ class FeedbackPage extends React.Component<FeedbackPageProps, {}> {
     return (
       <div className="Feedback-Page">
         <Header title="Send Feedback" />
+        {/* Should be a form element */}
         <div className="Feedback-Form">
           <ul>
+            {/* All <li> components should be replaced with FormControl components */}
             <li>
-              <p>Name</p>
-              <p>Placeholder for name field</p>
+              <p>Name (InputLabel component)</p>
+              <p>Placeholder for name field (TextField component)</p>
             </li>
             <li>
-              <p>Email</p>
-              <p>Placeholder for email field</p>
+              <p>Email (InputLabel component)</p>
+              <p>Placeholder for email field (TextField component)</p>
             </li>
             <li>
-              <p>Reason</p>
-              <p>Placeholder for reason dropdown</p>
+              <p>Reason (InputLabel component)</p>
+              <p>Placeholder for reason dropdown (Select component)</p>
             </li>
             <li>
-              <p>Message</p>
-              <p>Placeholder for message field</p>
+              <p>Message (InputLabel component)</p>
+              <p>
+                Placeholder for message field (TextField component with
+                multiline prop)
+              </p>
             </li>
           </ul>
+          {/* <Button variant="contained" color="primary">Submit</Button> */}
+          <p>Placeholder for button</p>
         </div>
       </div>
     );

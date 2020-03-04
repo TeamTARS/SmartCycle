@@ -13,6 +13,8 @@
     "format": "./node_modules/.bin/prettier --write \"./**/*.{js,jsx,ts,tsx,json,css,scss,md}\""
   },
   "dependencies": {
+    "@material-ui/core": "^4.9.4",
+    "@material-ui/icons": "^4.9.1",
     "babel-polyfill": "^6.26.0",
     "dotenv": "^8.2.0",
     "express": "^4.16.3",

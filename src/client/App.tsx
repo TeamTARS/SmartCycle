@@ -7,8 +7,6 @@ import AboutPage from "./Pages/About";
 import FeedbackPage from "./Pages/Feedback";
 import HelpPage from "./Pages/Help";
 import HomePage from "./Pages/Home";
-import ItemPage from "./Pages/Item";
-import ResultsPage from "./Pages/Results";
 import SettingsPage from "./Pages/Settings";
 
 const App = () => {
@@ -30,8 +28,6 @@ const App = () => {
           </Route>
           <Route path="/">
             <HomePage test="Home Page" />
-            <ResultsPage test="Results Page" />
-            <ItemPage itemName="Item Page Item Name" />
           </Route>
         </Switch>
       </div>
