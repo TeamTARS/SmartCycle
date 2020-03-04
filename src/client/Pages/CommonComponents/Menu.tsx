@@ -47,17 +47,14 @@ class Menu extends React.Component<MenuProps, MenuState> {
   render() {
     return (
       <div className="Menu">
-        {/* Header here */}
         {/* TODO: Add styling */}
-        <AppBar>
+        <AppBar position="static">
           <Toolbar>
             <IconButton onClick={this.toggleMenu}>
               <MenuIcon />
             </IconButton>
-            <Typography variant="h6">
-              {/* {this.props.showMenu ? "true" : "false"} */}
-              {this.props.title}
-            </Typography>
+            {/* TODO: Figure out how to center text */}
+            <Typography variant="h6">{this.props.title}</Typography>
           </Toolbar>
         </AppBar>
         <Drawer open={this.state.open} onClick={this.toggleMenu}>
@@ -67,13 +64,13 @@ class Menu extends React.Component<MenuProps, MenuState> {
                 <IconButton onClick={this.toggleMenu}>
                   <MenuIcon />
                 </IconButton>
-                <Typography variant="h6">Menu</Typography>
+                <Typography variant="h6" align="center">
+                  Menu
+                </Typography>
               </Toolbar>
             </AppBar>
             <nav>
               <List>
-                {/* TODO: Switch Link to NavLink to allow styling */}
-                {/* Need to contain <Icon> elements */}
                 <ListItem button component={Link} to="/">
                   <ListItemIcon>
                     <HomeIcon />

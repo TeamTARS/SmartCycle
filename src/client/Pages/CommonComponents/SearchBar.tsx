@@ -1,30 +1,23 @@
-import { InputBase } from "@material-ui/core";
+import { Container, IconButton, InputBase } from "@material-ui/core";
 import MicIcon from "@material-ui/icons/Mic";
 import SearchIcon from "@material-ui/icons/Search";
 import React from "react";
 
-export interface SearchBarProps {
-  test: string;
-}
-
-class SearchBar extends React.Component<SearchBarProps, {}> {
+class SearchBar extends React.Component<{}, {}> {
   render() {
     return (
       <div>
         {/* TODO: Add styling */}
-        <div>
-          <p>Placeholder for search bar</p>
-          <div>
-            <SearchIcon />
-          </div>
+        <Container>
+          <SearchIcon />
           <InputBase
             placeholder="Search…"
             inputProps={{ "aria-label": "search" }}
           />
-          <div>
+          <IconButton>
             <MicIcon />
-          </div>
-        </div>
+          </IconButton>
+        </Container>
       </div>
     );
   }

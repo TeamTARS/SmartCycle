@@ -13,7 +13,7 @@ class ResultsPage extends React.Component<ResultsPageProps, {}> {
     return (
       <div className="Results-Page">
         <Header title="Results" showMenu={false} navBackLink="/" />
-        <SearchBar test="Search Bar" />
+        <SearchBar />
         {/* <List> component with maybe a <ListItem> component */}
         <ul>
           <li>

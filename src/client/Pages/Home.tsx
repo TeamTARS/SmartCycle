@@ -1,4 +1,7 @@
+import { Fab } from "@material-ui/core";
+import CameraAltIcon from "@material-ui/icons/CameraAlt";
 import React from "react";
+import { Link } from "react-router-dom";
 
 import Header from "./CommonComponents/Header";
 import SearchBar from "./CommonComponents/SearchBar";
@@ -11,17 +14,13 @@ class HomePage extends React.Component<HomePageProps, {}> {
   render() {
     return (
       <div className="Home-Page">
-        <Header title="Home Page Header" />
-        <SearchBar test="Home Page Search Bar" />
-        <div className="Partial-Results">
-          <h3>Home Page Partial Results</h3>
-          <p>Home Page Partial Results List (GridList component)</p>
-        </div>
+        <Header title="SmartRecycle" />
+        <SearchBar />
         <div className="Camera-View">
           <p>Placeholder for camera view</p>
-          <p>
-            Placeholder for camera button (FAB floating action button component)
-          </p>
+          <Fab component={Link} to="/results">
+            <CameraAltIcon />
+          </Fab>
         </div>
       </div>
     );

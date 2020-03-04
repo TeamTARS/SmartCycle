@@ -1,3 +1,4 @@
+import { Divider, Grid, Switch } from "@material-ui/core";
 import React from "react";
 
 import Header from "./CommonComponents/Header";
@@ -13,33 +14,41 @@ class SettingsPage extends React.Component<SettingsPageProps, {}> {
         <Header title="Settings" />
         <div className="Settings-System-Permissions">
           <h3>System Permissions</h3>
-          <ul>
-            {/* <Divider /> */}
-            <li>
+          <Divider />
+          <Grid container>
+            <Grid item xs={9}>
               <p>Camera</p>
-              {/* <Divider orientation="vertical" /> */}
-              <p>Placeholder for toggle (Switch component)</p>
-            </li>
-            {/* <Divider /> */}
-            <li>
+            </Grid>
+            <Divider orientation="vertical" flexItem />
+            <Grid item xs>
+              <Switch size="small" color="primary" />
+            </Grid>
+          </Grid>
+          <Divider />
+          <Grid container>
+            <Grid item xs={9}>
               <p>Microphone</p>
-              {/* <Divider orientation="vertical" /> */}
-              <p>Placeholder for toggle (Switch component)</p>
-            </li>
-            {/* <Divider /> */}
-          </ul>
+            </Grid>
+            <Divider orientation="vertical" flexItem />
+            <Grid item xs>
+              <Switch size="small" color="primary" />
+            </Grid>
+          </Grid>
+          <Divider />
         </div>
         <div className="Settings-Display">
           <h3>Display</h3>
-          <ul>
-            {/* <Divider /> */}
-            <li>
+          <Divider />
+          <Grid container>
+            <Grid item xs={9}>
               <p>Dark Mode</p>
-              {/* <Divider orientation="vertical" /> */}
-              <p>Placeholder for toggle (Switch component)</p>
-            </li>
-            {/* <Divider /> */}
-          </ul>
+            </Grid>
+            <Divider orientation="vertical" flexItem />
+            <Grid item xs>
+              <Switch size="small" color="primary" />
+            </Grid>
+          </Grid>
+          <Divider />
         </div>
       </div>
     );
