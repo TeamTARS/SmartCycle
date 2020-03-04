@@ -26,7 +26,7 @@ module.exports = {
       // TS loader
       {
         test: /\.tsx?$/,
-        use: "ts-loader",
+        use: "awesome-typescript-loader",
         exclude: /node_modules/
       },
       // JS loader
@@ -49,7 +49,11 @@ module.exports = {
 
     // Allow access to dev proxy from external boxes
     host: "0.0.0.0",
-    disableHostCheck: true
+    disableHostCheck: true,
+    watchOptions: {
+      poll: 2000,
+      aggregateTimeout: 1000
+    }
   },
   plugins: [
     new CleanWebpackPlugin(), // Defaults to cleaning output.path
