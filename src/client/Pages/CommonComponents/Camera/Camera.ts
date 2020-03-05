@@ -1,6 +1,6 @@
 export const VIDEO_PIXELS = 224;
 
-export interface CameraDimentions {
+export interface CameraDimensions {
   [index: number]: number;
 }
 
@@ -10,11 +10,11 @@ export class Camera {
   aspectRatio: number = -1;
 
   constructor() {
-    this.videoElement = <HTMLVideoElement>document.querySelector(".Camera");
+    this.videoElement = document.querySelector(".Camera") as HTMLVideoElement;
     this.snapShotCanvas = document.createElement("canvas");
   }
 
-  async setupCamera(): Promise<CameraDimentions | null> {
+  async setupCamera(): Promise<CameraDimensions | null> {
     if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
       const stream = await navigator.mediaDevices.getUserMedia({
         audio: false,

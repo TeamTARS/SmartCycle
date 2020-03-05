@@ -2,9 +2,9 @@ import { Fab } from "@material-ui/core";
 import CameraAltIcon from "@material-ui/icons/CameraAlt";
 import React from "react";
 
+import CameraView from "./CommonComponents/Camera/CameraView";
 import Header from "./CommonComponents/Header";
 import SearchBar from "./CommonComponents/SearchBar";
-import CameraView from "../camera/CameraView";
 
 export interface HomePageProps {
   test: string;
@@ -18,7 +18,6 @@ class HomePage extends React.Component<HomePageProps, {}> {
         <SearchBar />
         <div className="Camera-View">
           <CameraView />
-          <p>Placeholder for camera view</p>
           <Fab>
             <CameraAltIcon />
           </Fab>

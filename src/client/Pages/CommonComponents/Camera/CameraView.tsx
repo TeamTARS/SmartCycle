@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
-import { Camera, CameraDimentions, VIDEO_PIXELS } from "./Camera";
-import * as tfc from "@tensorflow/tfjs-core";
 import * as mobilenet from "@tensorflow-models/mobilenet";
-import "./Camera.css";
+import * as tfc from "@tensorflow/tfjs-core";
+import React, { useEffect, useState } from "react";
+
+import { Camera, CameraDimensions, VIDEO_PIXELS } from "./Camera";
 
 const CameraView = () => {
   const [predictions, setPredictions] = useState([]);
@@ -30,7 +30,7 @@ const CameraView = () => {
   const startCamera = async () => {
     const camera = new Camera();
     const model = await mobilenet.load();
-    const value: CameraDimentions | null = await camera.setupCamera();
+    const value: CameraDimensions | null = await camera.setupCamera();
     if (value) {
       camera.setupVideoDimensions(value[0], value[1]);
       predict(model, camera);
