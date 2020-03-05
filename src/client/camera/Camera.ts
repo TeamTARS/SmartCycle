@@ -14,14 +14,6 @@ export class Camera {
     this.snapShotCanvas = document.createElement("canvas");
   }
 
-  /**
-   * Requests access to the camera and return a Promise with the native width
-   * and height of the video element when resolved.
-   *
-   * @async
-   * @returns {Promise<CameraDimentions>} A promise with the width and height
-   * of the video element used as the camera.
-   */
   async setupCamera(): Promise<CameraDimentions | null> {
     if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
       const stream = await navigator.mediaDevices.getUserMedia({

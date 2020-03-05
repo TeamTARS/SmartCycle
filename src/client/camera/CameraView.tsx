@@ -45,6 +45,7 @@ const CameraView = () => {
 
   return (
     <div>
+      {/*This is temporary UI for testing*/}
       <p>ItemName: {predictions[0] && (predictions[0] as any).className}</p>
       <p>
         probability: {predictions[0] && (predictions[0] as any).probability}
