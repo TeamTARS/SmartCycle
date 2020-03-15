@@ -24,10 +24,12 @@ app.use("/trashInfos", trashInfosRouter);
 const trashInfoDetailsRouter = require("./routes/TrashInfoDetails");
 app.use("/trashInfoDetails", trashInfoDetailsRouter);
 
+// API for testing
 app.use(express.static("webpack-build"));
 app.get("/api/getProjectName", (req, res) =>
-  res.send({ projectName: databaseUrl })
+  res.send({ projectName: "SmartCycle" })
 );
+
 app.get("/*", (req, res) => {
   res.sendFile(path.resolve("webpack-build/index.html"));
 });
