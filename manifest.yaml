@@ -1,0 +1,6 @@
+---
+applications:
+- name: SmartCycle
+  command: node src/server/index.js
+  services:
+  - SmartCycleDB

@@ -12,11 +12,6 @@ const TrashInfoSchema = new mongoose.Schema({
     required: true
   },
   // e.g. compost
-  category: {
-    type: String,
-    required: true
-  },
-  // e.g. compost
   bin: {
     type: String,
     required: true

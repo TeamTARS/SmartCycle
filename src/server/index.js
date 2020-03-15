@@ -5,11 +5,15 @@ const app = express();
 const mongoose = require("mongoose");
 const path = require("path");
 
-mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true });
+let databaseUrl;
+if (process.env.VCAP_SERVICES) {
+  const env = JSON.parse(process.env.VCAP_SERVICES);
+  databaseUrl = env["mongodb"][0]["credentials"]["uri"];
+}
+databaseUrl = databaseUrl || process.env.DATABASE_URL;
+mongoose.connect(databaseUrl, { useNewUrlParser: true });
 const db = mongoose.connection;
-db.once("open", () =>
-  console.log("Conntected to database:", process.env.DATABASE_URL)
-);
+db.once("open", () => console.log("Conntected to database:", databaseUrl));
 db.on("error", err => console.error("Failed to connect to database:", err));
 
 const trashImagesRouter = require("./routes/TrashImages");
@@ -22,7 +26,7 @@ app.use("/trashInfoDetails", trashInfoDetailsRouter);
 
 app.use(express.static("webpack-build"));
 app.get("/api/getProjectName", (req, res) =>
-  res.send({ projectName: "SmartRecycle" })
+  res.send({ projectName: databaseUrl })
 );
 app.get("/*", (req, res) => {
   res.sendFile(path.resolve("webpack-build/index.html"));
