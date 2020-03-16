@@ -6,9 +6,10 @@ import "./Camera.css";
 
 const CameraView = () => {
   const [predictions, setPredictions] = useState([]);
+  const [cameraStarted, setCameraStarted] = useState(false);
 
   const predict = async (model: any, camera: any) => {
-    const predictionsPromise = tfc.tidy(() => {
+    tfc.tidy(() => {
       const pixels = tfc.browser.fromPixels(camera.videoElement);
       const centerHeight = pixels.shape[0] / 2;
       const beginHeight = centerHeight - VIDEO_PIXELS / 2;
@@ -18,12 +19,10 @@ const CameraView = () => {
         [beginHeight, beginWidth, 0],
         [VIDEO_PIXELS, VIDEO_PIXELS, 3]
       );
-      return model.classify(pixelsCropped);
+      model
+        .classify(pixelsCropped)
+        .then((predictions: any) => setPredictions(predictions));
     });
-    const predictions = await predictionsPromise;
-    setPredictions(predictions);
-    console.log("Predictions: ");
-    console.log(predictions);
     requestAnimationFrame(() => predict(model, camera));
   };
 
@@ -40,7 +39,10 @@ const CameraView = () => {
   };
 
   useEffect(() => {
-    startCamera();
+    if (!cameraStarted) {
+      startCamera();
+      setCameraStarted(true);
+    }
   });
 
   return (
