@@ -7,6 +7,11 @@
   color: white;
 }
 
+.Prediction-itemName {
+  color: black;
+  font-weight: bold;
+}
+
 .Bin-Landfill {
   color: brown;
   font-weight: bold;

@@ -6,7 +6,10 @@ import React, { useEffect, useState } from "react";
 import { Camera, CameraDimensions, VIDEO_PIXELS } from "./Camera";
 
 const CameraView = () => {
-  const [predictions, setPredictions] = useState([]);
+  const [prediction, setPrediction] = useState({
+    itemName: "detecting...",
+    bin: "unknown"
+  });
   const [cameraStarted, setCameraStarted] = useState(false);
 
   const predict = async (model: any, camera: any) => {
@@ -20,9 +23,13 @@ const CameraView = () => {
         [beginHeight, beginWidth, 0],
         [VIDEO_PIXELS, VIDEO_PIXELS, 3]
       );
-      model
-        .classify(pixelsCropped)
-        .then((predictions: any) => setPredictions(predictions));
+      model.classify(pixelsCropped).then((predictions: any) => {
+        const className =
+          predictions[0] && ((predictions[0] as any).className as string);
+        const itemName = className.split(",")[0];
+        const bin = getBinResult(itemName);
+        setPrediction({ itemName, bin });
+      });
     });
     requestAnimationFrame(() => predict(model, camera));
   };
@@ -37,6 +44,21 @@ const CameraView = () => {
     } else {
       throw new Error("Failed to set up camera!");
     }
+  };
+
+  const getBinResult = (className: string): string => {
+    if (className.includes("orange")) {
+      return "Compost";
+    }
+    if (
+      className.includes("bottle") ||
+      className.includes("jug") ||
+      className.includes("iPod") ||
+      className.includes("cellphone")
+    ) {
+      return "Recycle";
+    }
+    return "Landfill";
   };
 
   // TODO: Need to make sure to clean up on unmount
@@ -56,8 +78,8 @@ const CameraView = () => {
     >
       <Grid item>
         <p>
-          {predictions[0] && (predictions[0] as any).className} (
-          <span className="Bin-Landfill">Landfill</span>)
+          <span className="Prediction-itemName">{prediction.itemName}</span>(
+          <span className={`Bin-${prediction.bin}`}>{prediction.bin}</span>)
         </p>
       </Grid>
       <Grid item>
