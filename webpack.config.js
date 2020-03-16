@@ -1,6 +1,8 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CleanWebpackPlugin = require("clean-webpack-plugin");
+const CopyWebpackPlugin = require("copy-webpack-plugin");
+const { GenerateSW } = require("workbox-webpack-plugin");
 
 const DIST_DIR = "webpack-build";
 
@@ -59,6 +61,11 @@ module.exports = {
     new CleanWebpackPlugin(), // Defaults to cleaning output.path
     new HtmlWebpackPlugin({
       template: "./public/index.html"
-    })
+    }),
+    new CopyWebpackPlugin([
+      { from: "./public/images", to: "images/" },
+      "./public/manifest.webmanifest"
+    ]),
+    new GenerateSW()
   ]
 };
