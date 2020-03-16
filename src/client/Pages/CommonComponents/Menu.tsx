@@ -47,13 +47,11 @@ class Menu extends React.Component<MenuProps, MenuState> {
   render() {
     return (
       <div className="Menu">
-        {/* TODO: Add styling */}
         <AppBar position="static">
           <Toolbar>
             <IconButton onClick={this.toggleMenu}>
-              <MenuIcon />
+              <MenuIcon className="Header-Icon" />
             </IconButton>
-            {/* TODO: Figure out how to center text */}
             <Typography variant="h6" className="Header-Title">
               {this.props.title}
             </Typography>
@@ -64,7 +62,7 @@ class Menu extends React.Component<MenuProps, MenuState> {
             <AppBar position="relative">
               <Toolbar>
                 <IconButton onClick={this.toggleMenu}>
-                  <MenuIcon />
+                  <MenuIcon className="Header-Icon" />
                 </IconButton>
                 <Typography
                   variant="h6"

@@ -6,9 +6,8 @@ import React from "react";
 class SearchBar extends React.Component<{}, {}> {
   render() {
     return (
-      <div>
-        {/* TODO: Add styling */}
-        <Container className="SearchBar">
+      <div className="SearchBar">
+        <Container className="SearchBar-Container">
           <SearchIcon className="SearchBar-IconButton" />
           <InputBase
             placeholder="Search…"
