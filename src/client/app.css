@@ -76,3 +76,21 @@
   flex-direction: row-reverse;
   margin-top: -4px;
 }
+
+.FeedbackForm-Field {
+  margin-top: 10px;
+}
+
+.FeedbackForm-Button {
+  display: flex;
+  flex-direction: row-reverse;
+  margin-top: 5px;
+}
+
+.Help-Bold {
+  font-weight: bold;
+}
+
+.Title-Center {
+  text-align: center;
+}
