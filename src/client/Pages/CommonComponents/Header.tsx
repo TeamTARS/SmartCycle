@@ -21,7 +21,6 @@ class Header extends React.Component<HeaderProps, {}> {
   render() {
     return (
       <div className="Header">
-        {/* TODO: Add styling */}
         {this.props.showMenu ? (
           <Menu title={this.props.title} />
         ) : (

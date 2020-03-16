@@ -1,39 +1,66 @@
 import React from "react";
 
 import Header from "./CommonComponents/Header";
+import { TextField, MenuItem, Button } from "@material-ui/core";
 
 class FeedbackPage extends React.Component<{}, {}> {
   render() {
     return (
       <div className="Feedback-Page">
         <Header title="Send Feedback" />
-        {/* Should be a form element */}
-        <div className="Feedback-Form">
-          <ul>
-            {/* All <li> components should be replaced with FormControl components */}
-            <li>
-              <p>Name (InputLabel component)</p>
-              <p>Placeholder for name field (TextField component)</p>
-            </li>
-            <li>
-              <p>Email (InputLabel component)</p>
-              <p>Placeholder for email field (TextField component)</p>
-            </li>
-            <li>
-              <p>Reason (InputLabel component)</p>
-              <p>Placeholder for reason dropdown (Select component)</p>
-            </li>
-            <li>
-              <p>Message (InputLabel component)</p>
-              <p>
-                Placeholder for message field (TextField component with
-                multiline prop)
-              </p>
-            </li>
-          </ul>
-          {/* <Button variant="contained" color="primary">Submit</Button> */}
-          <p>Placeholder for button</p>
-        </div>
+        <p className="Utils-Spacing">
+          We are more than happy to hear from you. Please submit your feedback
+          here and if you would like us to reach back out to you, please leave
+          your email address. Thank you from Team TARS.
+        </p>
+        <form className="FeedbackForm Utils-Spacing">
+          <TextField
+            id="name"
+            label="Name"
+            fullWidth
+            className="FeedbackForm-Field"
+          />
+          <TextField
+            id="email"
+            label="Email"
+            type="email"
+            fullWidth
+            className="FeedbackForm-Field"
+          />
+          <TextField
+            id="reason"
+            label="Reason"
+            select
+            fullWidth
+            className="FeedbackForm-Field"
+          >
+            <MenuItem key={0} value="Praise">
+              Praise
+            </MenuItem>
+            <MenuItem key={0} value="Bug">
+              Found Bug
+            </MenuItem>
+            <MenuItem key={1} value="Support">
+              Support Needed
+            </MenuItem>
+            <MenuItem key={2} value="Other">
+              Other
+            </MenuItem>
+          </TextField>
+          <TextField
+            id="message"
+            label="Message"
+            rows={6}
+            multiline
+            fullWidth
+            className="FeedbackForm-Field"
+          />
+          <div className="FeedbackForm-Button">
+            <Button variant="contained" color="primary">
+              Submit
+            </Button>
+          </div>
+        </form>
       </div>
     );
   }
