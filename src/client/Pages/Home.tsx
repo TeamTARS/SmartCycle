@@ -1,24 +1,33 @@
-import { Button } from "@material-ui/core";
+import { Grid } from "@material-ui/core";
 import React from "react";
 
 import CameraView from "./CommonComponents/Camera/CameraView";
 import Header from "./CommonComponents/Header";
 import SearchBar from "./CommonComponents/SearchBar";
+import ReportDataPopup from "./ReportData";
 
-export interface HomePageProps {
-  test: string;
-}
-
-class HomePage extends React.Component<HomePageProps, {}> {
+class HomePage extends React.Component<{}, {}> {
   render() {
     return (
       <div className="Home-Page">
-        <Header title="SmartRecycle" />
-        <SearchBar />
-        <div className="Camera-View">
+        <Grid
+          container
+          direction="column"
+          justify="flex-start"
+          alignItems="stretch"
+          className="test"
+        >
+          <Grid item>
+            <Header title="SmartRecycle" />
+          </Grid>
+          <Grid item>
+            <SearchBar />
+          </Grid>
           <CameraView />
-        </div>
-        <Button>Report Mislabeled Data</Button>
+          <Grid item>
+            <ReportDataPopup />
+          </Grid>
+        </Grid>
       </div>
     );
   }

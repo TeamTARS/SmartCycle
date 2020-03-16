@@ -54,7 +54,9 @@ class Menu extends React.Component<MenuProps, MenuState> {
               <MenuIcon />
             </IconButton>
             {/* TODO: Figure out how to center text */}
-            <Typography variant="h6">{this.props.title}</Typography>
+            <Typography variant="h6" className="Header-Title">
+              {this.props.title}
+            </Typography>
           </Toolbar>
         </AppBar>
         <Drawer open={this.state.open} onClick={this.toggleMenu}>
@@ -64,7 +66,11 @@ class Menu extends React.Component<MenuProps, MenuState> {
                 <IconButton onClick={this.toggleMenu}>
                   <MenuIcon />
                 </IconButton>
-                <Typography variant="h6" align="center">
+                <Typography
+                  variant="h6"
+                  align="center"
+                  className="Header-Title"
+                >
                   Menu
                 </Typography>
               </Toolbar>

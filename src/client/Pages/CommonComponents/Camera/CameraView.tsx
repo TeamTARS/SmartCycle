@@ -1,3 +1,4 @@
+import { Grid } from "@material-ui/core";
 import * as mobilenet from "@tensorflow-models/mobilenet";
 import * as tfc from "@tensorflow/tfjs-core";
 import React, { useEffect, useState } from "react";
@@ -38,23 +39,28 @@ const CameraView = () => {
     }
   };
 
+  // TODO: Need to make sure to clean up on unmount
   useEffect(() => {
     if (!cameraStarted) {
       startCamera();
       setCameraStarted(true);
     }
-  });
+  }, [cameraStarted, startCamera]);
 
   return (
-    <div>
-      {/*This is temporary UI for testing*/}
-      <p>ItemName: {predictions[0] && (predictions[0] as any).className}</p>
-      <p>
-        probability: {predictions[0] && (predictions[0] as any).probability}
-      </p>
-      <p>Trash bin: Compost</p>
-      <video className="Camera" autoPlay playsInline></video>
-    </div>
+    <Grid item container className="Camera-View">
+      <Grid item>
+        <p>
+          {predictions[0] && (predictions[0] as any).className} (
+          <span className="Bin-Landfill">Landfill</span>)
+        </p>
+      </Grid>
+      <Grid item>
+        <div>
+          <video className="Camera" autoPlay playsInline></video>
+        </div>
+      </Grid>
+    </Grid>
   );
 };
 

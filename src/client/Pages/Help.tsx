@@ -2,11 +2,7 @@ import React from "react";
 
 import Header from "./CommonComponents/Header";
 
-export interface HelpPageProps {
-  test: string;
-}
-
-class HelpPage extends React.Component<HelpPageProps, {}> {
+class HelpPage extends React.Component<{}, {}> {
   render() {
     return (
       <div className="Help-Page">

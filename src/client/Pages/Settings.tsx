@@ -3,11 +3,7 @@ import React from "react";
 
 import Header from "./CommonComponents/Header";
 
-export interface SettingsPageProps {
-  test: string;
-}
-
-class SettingsPage extends React.Component<SettingsPageProps, {}> {
+class SettingsPage extends React.Component<{}, {}> {
   render() {
     return (
       <div className="Settings-Page">
