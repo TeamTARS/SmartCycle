@@ -26,8 +26,8 @@ const CameraView = () => {
       model.classify(pixelsCropped).then((predictions: any) => {
         const className =
           predictions[0] && ((predictions[0] as any).className as string);
+        const bin = getBinResult(className);
         const itemName = className.split(",")[0];
-        const bin = getBinResult(itemName);
         setPrediction({ itemName, bin });
       });
     });
