@@ -27,7 +27,6 @@ router.post("/", async (req, res) => {
     const trashInfo = new TrashInfo({
       hashId: req.body.hashId,
       name: req.body.name,
-      category: req.body.category,
       bin: req.body.bin
     });
     const newTrashInfo = await trashInfo.save();
@@ -39,10 +38,6 @@ router.post("/", async (req, res) => {
 
 // Update one trash info
 router.patch("/:id", getTrashInfo, async (req, res) => {
-  if (req.body.category) {
-    res.trashInfo.category = req.body.category;
-  }
-
   if (req.body.bin) {
     res.trashInfo.bin = req.body.bin;
   }
