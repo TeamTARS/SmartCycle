@@ -1,5 +1,4 @@
-import { Fab } from "@material-ui/core";
-import CameraAltIcon from "@material-ui/icons/CameraAlt";
+import { Button } from "@material-ui/core";
 import React from "react";
 
 import CameraView from "./CommonComponents/Camera/CameraView";
@@ -18,10 +17,8 @@ class HomePage extends React.Component<HomePageProps, {}> {
         <SearchBar />
         <div className="Camera-View">
           <CameraView />
-          <Fab>
-            <CameraAltIcon />
-          </Fab>
         </div>
+        <Button>Report Mislabeled Data</Button>
       </div>
     );
   }
