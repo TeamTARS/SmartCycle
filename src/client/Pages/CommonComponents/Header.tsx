@@ -28,7 +28,7 @@ class Header extends React.Component<HeaderProps, {}> {
           <AppBar position="static">
             <Toolbar>
               <IconButton component={Link} to={this.props.navBackLink}>
-                <ArrowBackIcon />
+                <ArrowBackIcon className="Header-Icon" />
               </IconButton>
               <Typography variant="h6" className="Header-Title">
                 {this.props.title}

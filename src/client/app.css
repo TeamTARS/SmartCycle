@@ -3,6 +3,10 @@
   text-align: center;
 }
 
+.Header-Icon {
+  color: white;
+}
+
 .Bin-Landfill {
   color: brown;
   font-weight: bold;
