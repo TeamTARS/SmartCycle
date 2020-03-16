@@ -45,7 +45,7 @@ const CameraView = () => {
       startCamera();
       setCameraStarted(true);
     }
-  }, [cameraStarted, startCamera]);
+  });
 
   return (
     <Grid
