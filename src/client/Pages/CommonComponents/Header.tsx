@@ -30,7 +30,9 @@ class Header extends React.Component<HeaderProps, {}> {
               <IconButton component={Link} to={this.props.navBackLink}>
                 <ArrowBackIcon />
               </IconButton>
-              <Typography variant="h6">{this.props.title}</Typography>
+              <Typography variant="h6" className="Header-Title">
+                {this.props.title}
+              </Typography>
             </Toolbar>
           </AppBar>
         )}

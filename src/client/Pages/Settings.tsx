@@ -3,16 +3,12 @@ import React from "react";
 
 import Header from "./CommonComponents/Header";
 
-export interface SettingsPageProps {
-  test: string;
-}
-
-class SettingsPage extends React.Component<SettingsPageProps, {}> {
+class SettingsPage extends React.Component<{}, {}> {
   render() {
     return (
       <div className="Settings-Page">
         <Header title="Settings" />
-        <div className="Settings-System-Permissions">
+        <div className="Settings-System-Permissions Utils-Spacing">
           <h3>System Permissions</h3>
           <Divider />
           <Grid container>
@@ -20,7 +16,7 @@ class SettingsPage extends React.Component<SettingsPageProps, {}> {
               <p>Camera</p>
             </Grid>
             <Divider orientation="vertical" flexItem />
-            <Grid item xs>
+            <Grid item xs className="Settings-Switch">
               <Switch size="small" color="primary" />
             </Grid>
           </Grid>
@@ -30,13 +26,13 @@ class SettingsPage extends React.Component<SettingsPageProps, {}> {
               <p>Microphone</p>
             </Grid>
             <Divider orientation="vertical" flexItem />
-            <Grid item xs>
+            <Grid item xs className="Settings-Switch">
               <Switch size="small" color="primary" />
             </Grid>
           </Grid>
           <Divider />
         </div>
-        <div className="Settings-Display">
+        <div className="Settings-Display Utils-Spacing">
           <h3>Display</h3>
           <Divider />
           <Grid container>
@@ -44,7 +40,7 @@ class SettingsPage extends React.Component<SettingsPageProps, {}> {
               <p>Dark Mode</p>
             </Grid>
             <Divider orientation="vertical" flexItem />
-            <Grid item xs>
+            <Grid item xs className="Settings-Switch">
               <Switch size="small" color="primary" />
             </Grid>
           </Grid>

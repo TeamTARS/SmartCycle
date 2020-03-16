@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from "react";
-import { Camera, CameraDimentions, VIDEO_PIXELS } from "./Camera";
-import * as tfc from "@tensorflow/tfjs-core";
+import { Grid } from "@material-ui/core";
 import * as mobilenet from "@tensorflow-models/mobilenet";
-import "./Camera.css";
+import * as tfc from "@tensorflow/tfjs-core";
+import React, { useEffect, useState } from "react";
+
+import { Camera, CameraDimensions, VIDEO_PIXELS } from "./Camera";
 
 const CameraView = () => {
   const [predictions, setPredictions] = useState([]);
@@ -29,7 +30,7 @@ const CameraView = () => {
   const startCamera = async () => {
     const camera = new Camera();
     const model = await mobilenet.load();
-    const value: CameraDimentions | null = await camera.setupCamera();
+    const value: CameraDimensions | null = await camera.setupCamera();
     if (value) {
       camera.setupVideoDimensions(value[0], value[1]);
       predict(model, camera);
@@ -38,6 +39,7 @@ const CameraView = () => {
     }
   };
 
+  // TODO: Need to make sure to clean up on unmount
   useEffect(() => {
     if (!cameraStarted) {
       startCamera();
@@ -46,15 +48,24 @@ const CameraView = () => {
   });
 
   return (
-    <div>
-      {/*This is temporary UI for testing*/}
-      <p>ItemName: {predictions[0] && (predictions[0] as any).className}</p>
-      <p>
-        probability: {predictions[0] && (predictions[0] as any).probability}
-      </p>
-      <p>Trash bin: Compost</p>
-      <video className="Camera" autoPlay playsInline></video>
-    </div>
+    <Grid
+      item
+      container
+      direction="column"
+      className="Camera-View Utils-Spacing"
+    >
+      <Grid item>
+        <p>
+          {predictions[0] && (predictions[0] as any).className} (
+          <span className="Bin-Landfill">Landfill</span>)
+        </p>
+      </Grid>
+      <Grid item>
+        <div>
+          <video className="Camera" autoPlay playsInline></video>
+        </div>
+      </Grid>
+    </Grid>
   );
 };
 

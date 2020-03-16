@@ -15,19 +15,19 @@ const App = () => {
       <div className="App">
         <Switch>
           <Route path="/about">
-            <AboutPage test="About Page" />
+            <AboutPage />
           </Route>
           <Route path="/settings">
-            <SettingsPage test="Settings Page" />
+            <SettingsPage />
           </Route>
           <Route path="/feedback">
-            <FeedbackPage test="Feedback Page" />
+            <FeedbackPage />
           </Route>
           <Route path="/help">
-            <HelpPage test="Help Page" />
+            <HelpPage />
           </Route>
           <Route path="/">
-            <HomePage test="Home Page" />
+            <HomePage />
           </Route>
         </Switch>
       </div>

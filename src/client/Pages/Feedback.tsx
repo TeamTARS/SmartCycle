@@ -2,11 +2,7 @@ import React from "react";
 
 import Header from "./CommonComponents/Header";
 
-export interface FeedbackPageProps {
-  test: string;
-}
-
-class FeedbackPage extends React.Component<FeedbackPageProps, {}> {
+class FeedbackPage extends React.Component<{}, {}> {
   render() {
     return (
       <div className="Feedback-Page">

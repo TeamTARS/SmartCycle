@@ -1,28 +1,32 @@
-import { Fab } from "@material-ui/core";
-import CameraAltIcon from "@material-ui/icons/CameraAlt";
+import { Grid } from "@material-ui/core";
 import React from "react";
 
+import CameraView from "./CommonComponents/Camera/CameraView";
 import Header from "./CommonComponents/Header";
 import SearchBar from "./CommonComponents/SearchBar";
-import CameraView from "../camera/CameraView";
+import ReportDataPopup from "./ReportData";
 
-export interface HomePageProps {
-  test: string;
-}
-
-class HomePage extends React.Component<HomePageProps, {}> {
+class HomePage extends React.Component<{}, {}> {
   render() {
     return (
       <div className="Home-Page">
-        <Header title="SmartRecycle" />
-        <SearchBar />
-        <div className="Camera-View">
+        <Grid
+          container
+          direction="column"
+          justify="flex-start"
+          alignItems="stretch"
+        >
+          <Grid item>
+            <Header title="SmartRecycle" />
+          </Grid>
+          <Grid item>
+            <SearchBar />
+          </Grid>
           <CameraView />
-          <p>Placeholder for camera view</p>
-          <Fab>
-            <CameraAltIcon />
-          </Fab>
-        </div>
+          <Grid item className="Utils-Spacing">
+            <ReportDataPopup />
+          </Grid>
+        </Grid>
       </div>
     );
   }
