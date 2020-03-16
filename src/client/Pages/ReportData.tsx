@@ -43,7 +43,7 @@ class ReportDataPopup extends React.Component<{}, PopupState> {
             <TextField
               autoFocus
               margin="dense"
-              id="name"
+              id="label"
               label="Correct Label for Image"
               type="text"
               fullWidth

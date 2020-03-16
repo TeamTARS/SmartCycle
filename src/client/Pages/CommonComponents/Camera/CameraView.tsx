@@ -48,7 +48,12 @@ const CameraView = () => {
   }, [cameraStarted, startCamera]);
 
   return (
-    <Grid item container className="Camera-View">
+    <Grid
+      item
+      container
+      direction="column"
+      className="Camera-View Utils-Spacing"
+    >
       <Grid item>
         <p>
           {predictions[0] && (predictions[0] as any).className} (

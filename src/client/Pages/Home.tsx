@@ -15,7 +15,6 @@ class HomePage extends React.Component<{}, {}> {
           direction="column"
           justify="flex-start"
           alignItems="stretch"
-          className="test"
         >
           <Grid item>
             <Header title="SmartRecycle" />
@@ -24,7 +23,7 @@ class HomePage extends React.Component<{}, {}> {
             <SearchBar />
           </Grid>
           <CameraView />
-          <Grid item>
+          <Grid item className="Utils-Spacing">
             <ReportDataPopup />
           </Grid>
         </Grid>

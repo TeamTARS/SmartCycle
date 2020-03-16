@@ -8,13 +8,14 @@ class SearchBar extends React.Component<{}, {}> {
     return (
       <div>
         {/* TODO: Add styling */}
-        <Container>
-          <SearchIcon />
+        <Container className="SearchBar">
+          <SearchIcon className="SearchBar-IconButton" />
           <InputBase
             placeholder="Search…"
             inputProps={{ "aria-label": "search" }}
+            className="SearchBar-Input"
           />
-          <IconButton>
+          <IconButton className="SearchBar-IconButton">
             <MicIcon />
           </IconButton>
         </Container>
