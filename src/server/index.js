@@ -27,7 +27,7 @@ app.use("/trashInfoDetails", trashInfoDetailsRouter);
 // API for testing
 app.use(express.static("webpack-build"));
 app.get("/api/getProjectName", (req, res) =>
-  res.send({ projectName: "SmartCycle" })
+  res.send({ projectName: "SmartRecycle" })
 );
 
 app.get("/*", (req, res) => {
