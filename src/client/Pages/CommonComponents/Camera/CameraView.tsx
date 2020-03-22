@@ -4,6 +4,7 @@ import * as tfc from "@tensorflow/tfjs-core";
 import React, { useEffect, useState } from "react";
 
 import { Camera, CameraDimensions, VIDEO_PIXELS } from "./Camera";
+import ReportDataPopup from "../../ReportData";
 
 const CameraView = () => {
   const [prediction, setPrediction] = useState({
@@ -77,15 +78,12 @@ const CameraView = () => {
       className="Camera-View Utils-Spacing"
     >
       <Grid item>
-        <p>
-          <span className="Prediction-itemName">{prediction.itemName}</span>(
-          <span className={`Bin-${prediction.bin}`}>{prediction.bin}</span>)
-        </p>
-      </Grid>
-      <Grid item>
         <div>
           <video className="Camera" autoPlay playsInline></video>
         </div>
+      </Grid>
+      <Grid item>
+        <ReportDataPopup itemName={prediction.itemName} bin={prediction.bin} />
       </Grid>
     </Grid>
   );

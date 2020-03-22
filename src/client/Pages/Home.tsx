@@ -4,7 +4,6 @@ import React from "react";
 import CameraView from "./CommonComponents/Camera/CameraView";
 import Header from "./CommonComponents/Header";
 import SearchBar from "./CommonComponents/SearchBar";
-import ReportDataPopup from "./ReportData";
 
 class HomePage extends React.Component<{}, {}> {
   render() {
@@ -23,9 +22,6 @@ class HomePage extends React.Component<{}, {}> {
             <SearchBar />
           </Grid>
           <CameraView />
-          <Grid item className="Utils-Spacing">
-            <ReportDataPopup />
-          </Grid>
         </Grid>
       </div>
     );

@@ -5,16 +5,23 @@ import {
   DialogContent,
   DialogContentText,
   DialogTitle,
-  TextField
+  TextField,
+  Grid,
+  Divider
 } from "@material-ui/core";
 import React from "react";
+
+export interface PopupProps {
+  itemName: string;
+  bin: string;
+}
 
 export interface PopupState {
   open: boolean;
 }
 
-class ReportDataPopup extends React.Component<{}, PopupState> {
-  constructor(props: {}) {
+class ReportDataPopup extends React.Component<PopupProps, PopupState> {
+  constructor(props: PopupProps) {
     super(props);
     this.state = { open: false };
 
@@ -28,10 +35,24 @@ class ReportDataPopup extends React.Component<{}, PopupState> {
 
   render() {
     return (
-      <div className="ReportData-Popup">
-        <Button variant="contained" color="primary" onClick={this.togglePopup}>
-          Report
-        </Button>
+      <div>
+        <Grid container justify="space-evenly" alignItems="center">
+          <Grid item>
+            <Button
+              variant="contained"
+              color="primary"
+              onClick={this.togglePopup}
+            >
+              {this.props.itemName}
+            </Button>
+          </Grid>
+          <Divider orientation="vertical" flexItem />
+          <Grid item>
+            <p>
+              <span className={`Bin-${this.props.bin}`}>{this.props.bin}</span>
+            </p>
+          </Grid>
+        </Grid>
         <Dialog open={this.state.open} onClose={this.togglePopup}>
           <DialogTitle>Report Mislabeled Data</DialogTitle>
           <DialogContent>
