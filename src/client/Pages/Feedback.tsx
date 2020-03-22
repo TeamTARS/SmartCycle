@@ -37,13 +37,13 @@ class FeedbackPage extends React.Component<{}, {}> {
             <MenuItem key={0} value="Praise">
               Praise
             </MenuItem>
-            <MenuItem key={0} value="Bug">
+            <MenuItem key={1} value="Bug">
               Found Bug
             </MenuItem>
-            <MenuItem key={1} value="Support">
+            <MenuItem key={2} value="Support">
               Support Needed
             </MenuItem>
-            <MenuItem key={2} value="Other">
+            <MenuItem key={3} value="Other">
               Other
             </MenuItem>
           </TextField>
