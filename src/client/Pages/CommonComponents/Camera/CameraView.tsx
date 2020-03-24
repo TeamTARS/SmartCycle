@@ -13,6 +13,21 @@ const CameraView = () => {
   });
   const [cameraStarted, setCameraStarted] = useState(false);
 
+  let debounceFunc: any;
+  let previous: string | undefined;
+  let timer: any;
+
+  const debounce = (func: any, delay: number) => {
+    return function(this: any) {
+      const context = this;
+      const args = arguments;
+      clearTimeout(timer);
+      timer = setTimeout(() => {
+        func.apply(context, args);
+      }, delay);
+    };
+  };
+
   const predict = async (model: any, camera: any) => {
     tfc.tidy(() => {
       const pixels = tfc.browser.fromPixels(camera.videoElement);
@@ -29,7 +44,18 @@ const CameraView = () => {
           predictions[0] && ((predictions[0] as any).className as string);
         const bin = getBinResult(className);
         const itemName = className.split(",")[0];
-        setPrediction({ itemName, bin });
+        if (!debounceFunc) {
+          debounceFunc = debounce((updatedInfo: any) => {
+            setPrediction(updatedInfo);
+          }, 300);
+        }
+        if (predictions[0].probability > 0.7) {
+          clearTimeout(timer);
+          setPrediction({ itemName, bin });
+        } else if (previous && itemName !== previous) {
+          debounceFunc({ itemName, bin });
+        }
+        previous = itemName;
       });
     });
     requestAnimationFrame(() => predict(model, camera));
