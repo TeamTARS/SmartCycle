@@ -68,18 +68,18 @@ const CameraView = () => {
       startCamera();
       setCameraStarted(true);
     }
-  });
+  }, [cameraStarted, startCamera]);
 
   return (
     <Grid
       item
       container
       direction="column"
-      className="Camera-View Utils-Spacing"
+      className="Camera-View Utils-Spacing Utils-Flex"
     >
-      <Grid item>
-        <div>
-          <video className="Camera" autoPlay playsInline></video>
+      <Grid item className="Utils-Flex">
+        <div className="Utils-Height">
+          <video className="Camera Utils-Flex" autoPlay playsInline></video>
         </div>
       </Grid>
       <Grid item>
