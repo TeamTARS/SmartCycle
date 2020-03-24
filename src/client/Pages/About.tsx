@@ -11,11 +11,12 @@ class AboutPage extends React.Component<{}, {}> {
           <h3 className="Title-Center">Meet Team TARS</h3>
           {/* <p>Placeholder for Academy Logo</p> */}
           <p className="About-Us-Description">
-            Team TARS is a team formed at the SAP Academy Of Engineering, aiming
-            to prevent the Apocalypse since 2019. <br />
-            We aim to make the world a greener place, by educating people how to
-            recycle more in a fun and enjoyable way. Help us by being a more
-            responsible citizen and making the world greener!
+            We are Team TARS, a team formed at the SAP Academy Of Engineering
+            with a goal of preventing the Apocalypse. We aim to make the world a
+            greener place by educating people on how to recycle by providing an
+            easy to use application while also helping companies enact greener
+            policies. Let's make the world a greener, more inhabitable place for
+            us and all future generations together!
           </p>
         </div>
       </div>

@@ -4,17 +4,17 @@ import React from "react";
 import CameraView from "./CommonComponents/Camera/CameraView";
 import Header from "./CommonComponents/Header";
 import SearchBar from "./CommonComponents/SearchBar";
-import ReportDataPopup from "./ReportData";
 
 class HomePage extends React.Component<{}, {}> {
   render() {
     return (
-      <div className="Home-Page">
+      <div className="HomePage">
         <Grid
           container
           direction="column"
           justify="flex-start"
           alignItems="stretch"
+          className="HomePage-Grid"
         >
           <Grid item>
             <Header title="SmartRecycle" />
@@ -23,9 +23,6 @@ class HomePage extends React.Component<{}, {}> {
             <SearchBar />
           </Grid>
           <CameraView />
-          <Grid item className="Utils-Spacing">
-            <ReportDataPopup />
-          </Grid>
         </Grid>
       </div>
     );

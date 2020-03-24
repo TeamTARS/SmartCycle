@@ -32,7 +32,7 @@ class SettingsPage extends React.Component<{}, {}> {
           </Grid>
           <Divider />
         </div>
-        <div className="Settings-Display Utils-Spacing">
+        {/* <div className="Settings-Display Utils-Spacing">
           <h3>Display</h3>
           <Divider />
           <Grid container>
@@ -45,7 +45,7 @@ class SettingsPage extends React.Component<{}, {}> {
             </Grid>
           </Grid>
           <Divider />
-        </div>
+        </div> */}
       </div>
     );
   }
