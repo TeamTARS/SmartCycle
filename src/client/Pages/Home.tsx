@@ -54,7 +54,7 @@ class HomePage extends React.Component<{}, { isToastMessageOpen: boolean }> {
                 onClose={this.closeToastMessage.bind(this)}
                 severity="info"
               >
-                Message from CSO: Using reusable glass could help saving the
+                Message from CSO: Using reusable glass could help protecting the
                 environment!
               </Alert>
             </Snackbar>
