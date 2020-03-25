@@ -118,6 +118,10 @@ button.MuiButton-contained {
   text-align: center;
 }
 
+.Autocomplete {
+  width: inherit;
+}
+
 @media screen and (max-height: 450px) {
   .HomePage-Grid {
     height: 100%;
