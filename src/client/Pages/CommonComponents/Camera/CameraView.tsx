@@ -111,7 +111,7 @@ const CameraView = (props: { openToastMessage: any }) => {
       startCamera();
       setCameraStarted(true);
     }
-  }, [cameraStarted, startCamera]);
+  });
 
   return (
     <Grid
