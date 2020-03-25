@@ -9,17 +9,24 @@ import SearchBar from "./CommonComponents/SearchBar";
 function Alert(props: any) {
   return <MuiAlert elevation={6} variant="filled" {...props} />;
 }
-class HomePage extends React.Component<{}, { isToastMessageOpen: boolean }> {
+class HomePage extends React.Component<
+  {},
+  { isToastMessageOpen: boolean; toastMessage: string; alertSeverity: string }
+> {
   constructor(props: any) {
     super(props);
     this.state = {
-      isToastMessageOpen: false
+      isToastMessageOpen: false,
+      toastMessage: "",
+      alertSeverity: ""
     };
   }
 
-  openToastMessage() {
+  openToastMessage(message: string, severity: string) {
     this.setState({
-      isToastMessageOpen: true
+      isToastMessageOpen: true,
+      toastMessage: message,
+      alertSeverity: severity
     });
   }
 
@@ -52,10 +59,9 @@ class HomePage extends React.Component<{}, { isToastMessageOpen: boolean }> {
             >
               <Alert
                 onClose={this.closeToastMessage.bind(this)}
-                severity="info"
+                severity={this.state.alertSeverity}
               >
-                Message from CSO: Using reusable glass could help protecting the
-                environment!
+                {this.state.toastMessage}
               </Alert>
             </Snackbar>
           </Grid>

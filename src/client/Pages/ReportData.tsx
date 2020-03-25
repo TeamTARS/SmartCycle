@@ -14,6 +14,7 @@ import React from "react";
 export interface PopupProps {
   itemName: string;
   bin: string;
+  openToastMessage: any;
 }
 
 export interface PopupState {
@@ -26,11 +27,20 @@ class ReportDataPopup extends React.Component<PopupProps, PopupState> {
     this.state = { open: false };
 
     this.togglePopup = this.togglePopup.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
   }
 
   togglePopup(e: React.KeyboardEvent | React.MouseEvent) {
     let open = this.state.open;
     this.setState({ ...this.state, open: !open });
+  }
+
+  onSubmit(e: React.KeyboardEvent | React.MouseEvent) {
+    this.props.openToastMessage(
+      "Thank you for submitting the correct label for this item!",
+      "success"
+    );
+    this.togglePopup(e);
   }
 
   render() {
@@ -74,7 +84,7 @@ class ReportDataPopup extends React.Component<PopupProps, PopupState> {
             <Button onClick={this.togglePopup} color="primary">
               Cancel
             </Button>
-            <Button onClick={this.togglePopup} color="primary">
+            <Button onClick={this.onSubmit} color="primary">
               Submit
             </Button>
           </DialogActions>
