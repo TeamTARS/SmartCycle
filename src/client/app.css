@@ -117,3 +117,9 @@ button.MuiButton-contained {
 .Title-Center {
   text-align: center;
 }
+
+@media screen and (max-height: 397px) {
+  .HomePage-Grid {
+    height: 100%;
+  }
+}
