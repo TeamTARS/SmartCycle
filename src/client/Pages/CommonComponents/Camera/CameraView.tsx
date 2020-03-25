@@ -6,7 +6,7 @@ import React, { useEffect, useState } from "react";
 import { Camera, CameraDimensions, VIDEO_PIXELS } from "./Camera";
 import ReportDataPopup from "../../ReportData";
 
-const CameraView = () => {
+const CameraView = (props: { openToastMessage: any }) => {
   const [prediction, setPrediction] = useState({
     itemName: "detecting...",
     bin: "unknown"
@@ -28,6 +28,13 @@ const CameraView = () => {
     };
   };
 
+  const setPredictionHelper = (binInfo: { itemName: string; bin: string }) => {
+    setPrediction(binInfo);
+    if (binInfo.itemName.includes("bottle")) {
+      props.openToastMessage();
+    }
+  };
+
   const predict = async (model: any, camera: any) => {
     tfc.tidy(() => {
       const pixels = tfc.browser.fromPixels(camera.videoElement);
@@ -46,14 +53,21 @@ const CameraView = () => {
         const itemName = className.split(",")[0];
         if (!debounceFunc) {
           debounceFunc = debounce((updatedInfo: any) => {
-            setPrediction(updatedInfo);
+            setPredictionHelper(updatedInfo);
           }, 300);
         }
         if (predictions[0].probability > 0.7) {
           clearTimeout(timer);
-          setPrediction({ itemName, bin });
+          setPredictionHelper({ itemName, bin });
         } else if (previous && itemName !== previous) {
-          debounceFunc({ itemName, bin });
+          if (predictions[0].probability > 0.6) {
+            debounceFunc({ itemName, bin });
+          } else {
+            setPredictionHelper({
+              itemName: "detecting...",
+              bin: "unknown"
+            });
+          }
         }
         previous = itemName;
       });
