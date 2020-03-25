@@ -32,7 +32,7 @@ const CameraView = (props: { openToastMessage: any }) => {
     setPrediction(binInfo);
     if (binInfo.itemName.includes("bottle")) {
       props.openToastMessage(
-        "Message from CSO: Using reusable glass could help protecting the environment!",
+        "You helped contribute to the company goal of recycling 1,500 bottles this quarter. Also, using reusable glass could help protecting the environment!",
         "info"
       );
     }
