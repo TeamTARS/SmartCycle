@@ -60,7 +60,14 @@ const CameraView = (props: { openToastMessage: any }) => {
           clearTimeout(timer);
           setPredictionHelper({ itemName, bin });
         } else if (previous && itemName !== previous) {
-          debounceFunc({ itemName, bin });
+          if (predictions[0].probability > 0.6) {
+            debounceFunc({ itemName, bin });
+          } else {
+            setPredictionHelper({
+              itemName: "detecting...",
+              bin: "unknown"
+            });
+          }
         }
         previous = itemName;
       });
