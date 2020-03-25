@@ -31,7 +31,10 @@ const CameraView = (props: { openToastMessage: any }) => {
   const setPredictionHelper = (binInfo: { itemName: string; bin: string }) => {
     setPrediction(binInfo);
     if (binInfo.itemName.includes("bottle")) {
-      props.openToastMessage();
+      props.openToastMessage(
+        "Message from CSO: Using reusable glass could help protecting the environment!",
+        "info"
+      );
     }
   };
 
@@ -123,7 +126,11 @@ const CameraView = (props: { openToastMessage: any }) => {
         </div>
       </Grid>
       <Grid item>
-        <ReportDataPopup itemName={prediction.itemName} bin={prediction.bin} />
+        <ReportDataPopup
+          openToastMessage={props.openToastMessage}
+          itemName={prediction.itemName}
+          bin={prediction.bin}
+        />
       </Grid>
     </Grid>
   );
