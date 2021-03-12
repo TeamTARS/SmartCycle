@@ -66,7 +66,7 @@
     "nodemon": "^1.17.3",
     "optimize-css-assets-webpack-plugin": "5.0.3",
     "prettier": "^1.19.1",
-    "react-dev-utils": "^10.1.0",
+    "react-dev-utils": "^11.0.4",
     "resolve": "1.15.0",
     "resolve-url-loader": "3.1.1",
     "source-map-loader": "^0.2.4",
